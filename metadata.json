@@ -1,0 +1,6 @@
+{
+  "name": "INIDA-ML: Network Intrusion Detection & Anomaly Analysis",
+  "description": "Intelligent Network Intrusion Detection and Anomaly Analysis System (CIC-IDS2017). Real-time flow classification, URL threat detection, Security Lab simulation, and AI Security Analyst.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

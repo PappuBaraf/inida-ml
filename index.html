@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INIDA-ML: Network Intrusion Detection & Anomaly Analysis</title>
+    <meta name="description" content="Intelligent Network Intrusion Detection and Anomaly Analysis System (CIC-IDS2017). Real-time flow classification, URL threat detection, Security Lab simulation, and AI Security Analyst." />
+    <meta property="og:title" content="INIDA-ML: Network Intrusion Detection & Anomaly Analysis" />
+    <meta property="og:description" content="Intelligent Network Intrusion Detection and Anomaly Analysis System (CIC-IDS2017)." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Defensive shims for browser extensions & devtools inspectors -->
+    <script>
+      (function() {
+        // 1. Filter out extension error events
+        window.addEventListener('error', function(event) {
+          if (event.filename && event.filename.includes('chrome-extension://')) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            return false;
+          }
+          if (event.message && event.message.includes('Cannot set property fetch')) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            return false;
+          }
+        }, true);
+
+        // 2. Ensure window.fetch has both a getter and setter so inspector scripts can wrap it
+        try {
+          var originalFetch = window.fetch ? window.fetch.bind(window) : null;
+          var activeFetch = originalFetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() {
+              return activeFetch;
+            },
+            set: function(fn) {
+              activeFetch = typeof fn === 'function' ? fn : originalFetch;
+            },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          // If already defined or non-configurable, fallback silently
+        }
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen selection:bg-cyan-500/20 selection:text-cyan-300">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

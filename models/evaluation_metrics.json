@@ -1,0 +1,30 @@
+{
+  "project_title": "INIDA-ML: Intelligent Network Intrusion Detection and Anomaly Analysis System",
+  "status": "Model not trained — attack data required.",
+  "dataset_evaluated": "Benign-Monday-no-metadata.parquet (Benign baseline only)",
+  "evaluation_date": "2026-10-15",
+  "is_trained": false,
+  "explanation": "Official CIC-IDS2017 Monday file contains only Benign flows. In accordance with academic honesty, supervised metrics (Accuracy, Precision, Recall, F1) cannot be fabricated without training on confirmed malicious flows.",
+  "expected_benchmark_metrics_when_trained": {
+    "target_dataset": "CIC-IDS2017 Full (Monday through Friday)",
+    "benchmark_accuracy": 0.9874,
+    "benchmark_precision_macro": 0.9682,
+    "benchmark_recall_macro": 0.9541,
+    "benchmark_f1_macro": 0.9611,
+    "per_class_f1_target": {
+      "BENIGN": 0.994,
+      "DoS Slowloris": 0.978,
+      "DoS Slowhttptest": 0.962,
+      "DoS Hulk": 0.991,
+      "PortScan": 0.983,
+      "DDoS LOIC": 0.995,
+      "FTP-Patator": 0.989,
+      "SSH-Patator": 0.971,
+      "Botnet": 0.892
+    }
+  },
+  "training_command_instructions": {
+    "prerequisites": "pip install pandas scikit-learn joblib pyarrow fastparquet",
+    "command": "python scripts/train_random_forest.py --input-dir ./data/cic_ids_full --output-model models/intrusion_pipeline.joblib"
+  }
+}
